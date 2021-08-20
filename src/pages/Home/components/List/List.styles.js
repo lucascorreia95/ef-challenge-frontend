@@ -21,6 +21,10 @@ export const ListTitleItem = styled.span`
   box-sizing: border-box;
   padding: 5px 0 5px 10px;
   margin-right: ${(props) => props.marginR};
+  @media (max-width: 767px) {
+    display: ${(props) => (props.hideMobile ? "none" : "block")};
+    margin-right: 0;
+  }
 `;
 
 export const ListEl = styled.ul`

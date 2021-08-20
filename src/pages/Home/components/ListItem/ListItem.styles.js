@@ -10,6 +10,9 @@ export const ItemContainer = styled.li`
   &:hover {
     background-color: rgba(212, 32, 38, 0.1);
   }
+  @media (max-width: 767px) {
+    padding: 20px 30px;
+  }
 `;
 
 export const ImgContainer = styled.div`
@@ -54,4 +57,7 @@ export const ItemDescription = styled.p`
 
 export const DescriptionContainer = styled.div`
   flex: 1 1 100%;
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;

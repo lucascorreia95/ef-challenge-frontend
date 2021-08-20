@@ -4,6 +4,10 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 34px;
+  @media (max-width: 767px) {
+    margin-bottom: 12px;
+    align-items: center;
+  }
 `;
 
 export const InputLabel = styled.label`
@@ -24,4 +28,7 @@ export const InputText = styled.input`
   height: 31px;
   border: 1px solid ${(props) => props.theme.colors.grey};
   border-radius: 5px;
+  @media (max-width: 767px) {
+    width: 80%;
+  }
 `;

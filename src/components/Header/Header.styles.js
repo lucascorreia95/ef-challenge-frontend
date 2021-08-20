@@ -8,6 +8,10 @@ export const HeaderContainer = styled.div`
   padding-bottom: 3px;
   box-sizing: border-box;
   margin-bottom: 34px;
+  @media (max-width: 767px) {
+    margin-bottom: 12px;
+    padding: 0 30px;
+  }
 `;
 
 export const HeaderTitle = styled.h1`
@@ -18,6 +22,10 @@ export const HeaderTitle = styled.h1`
   font-size: 27px;
   line-height: 32px;
   margin: 0;
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 `;
 
 export const HeaderTitleL = styled.span`
@@ -32,6 +40,9 @@ export const HeaderName = styled.h2`
   font-size: 27px;
   line-height: 32px;
   margin: 0;
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const HeaderBorder = styled.div`
@@ -41,4 +52,7 @@ export const HeaderBorder = styled.div`
   height: 4px;
   width: 54px;
   background-color: ${(props) => props.theme.colors.red};
+  @media (max-width: 767px) {
+    left: 30px;
+  }
 `;

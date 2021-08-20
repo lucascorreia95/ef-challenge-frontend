@@ -4,13 +4,15 @@ import Header from "./components/Header";
 import Routes from "./routes";
 import { theme } from "./theme";
 
+import { AppContainer } from "./App.styles";
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <AppContainer className="App">
         <Header name="Lucas Correia" />
         <Routes />
-      </div>
+      </AppContainer>
     </ThemeProvider>
   );
 }
