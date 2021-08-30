@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
+
 import ListItem from "../ListItem";
 
 import {
@@ -7,7 +10,15 @@ import {
   ListEl,
 } from "./List.styles";
 
-export const List = () => {
+export const List = ({ listData }) => {
+  const history = useHistory();
+
+  const handleItemClick = (id) =>
+    history.push({
+      pathname: `/details/${id}`,
+      params: id,
+    });
+
   return (
     <ListContainer>
       <ListTitleContainer>
@@ -19,61 +30,27 @@ export const List = () => {
         </ListTitleItem>
       </ListTitleContainer>
       <ListEl>
-        <ListItem
-          srcImg="https://assets.dragoart.com/images/11939_501/how-to-draw-iron-man-easy_5e4c9ed9b16b58.14188289_53732_3_3.png"
-          altImg="Alt Image"
-          name="Tony Marquinhos"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-          pharetra eu ligula at fringilla. Curabitur vitae condimentum
-          felis. Ut suscipit tellus non mauris consectetur, nec sollicitudin
-          enim cursus. Quisque et leo at lectus aliquam mattis. Praesent
-          condimentum enim nisi, sed rhoncus nibh volutpat vel. Ut tempor et
-          tortor a convallis. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Maecenas nec
-          finibus lectus."
-        />
-        <ListItem
-          srcImg="https://assets.dragoart.com/images/11939_501/how-to-draw-iron-man-easy_5e4c9ed9b16b58.14188289_53732_3_3.png"
-          altImg="Alt Image"
-          name="Tony Marquinhos"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-          pharetra eu ligula at fringilla. Curabitur vitae condimentum
-          felis. Ut suscipit tellus non mauris consectetur, nec sollicitudin
-          enim cursus. Quisque et leo at lectus aliquam mattis. Praesent
-          condimentum enim nisi, sed rhoncus nibh volutpat vel. Ut tempor et
-          tortor a convallis. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Maecenas nec
-          finibus lectus."
-        />
-        <ListItem
-          srcImg="https://assets.dragoart.com/images/11939_501/how-to-draw-iron-man-easy_5e4c9ed9b16b58.14188289_53732_3_3.png"
-          altImg="Alt Image"
-          name="Tony Marquinhos"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-          pharetra eu ligula at fringilla. Curabitur vitae condimentum
-          felis. Ut suscipit tellus non mauris consectetur, nec sollicitudin
-          enim cursus. Quisque et leo at lectus aliquam mattis. Praesent
-          condimentum enim nisi, sed rhoncus nibh volutpat vel. Ut tempor et
-          tortor a convallis. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Maecenas nec
-          finibus lectus."
-        />
-        <ListItem
-          srcImg="https://assets.dragoart.com/images/11939_501/how-to-draw-iron-man-easy_5e4c9ed9b16b58.14188289_53732_3_3.png"
-          altImg="Alt Image"
-          name="Tony Marquinhos"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-          pharetra eu ligula at fringilla. Curabitur vitae condimentum
-          felis. Ut suscipit tellus non mauris consectetur, nec sollicitudin
-          enim cursus. Quisque et leo at lectus aliquam mattis. Praesent
-          condimentum enim nisi, sed rhoncus nibh volutpat vel. Ut tempor et
-          tortor a convallis. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Maecenas nec
-          finibus lectus."
-        />
+        {listData.map((item) => {
+          return (
+            <ListItem
+              key={item.id}
+              srcImg={
+                item.attributes.image ? item.attributes.image.original : ""
+              }
+              altImg={item.attributes.name}
+              name={item.attributes.name}
+              description={item.attributes.description}
+              onClick={() => handleItemClick(item.id)}
+            />
+          );
+        })}
       </ListEl>
     </ListContainer>
   );
+};
+
+List.propTypes = {
+  listData: PropTypes.array,
 };
 
 export default List;

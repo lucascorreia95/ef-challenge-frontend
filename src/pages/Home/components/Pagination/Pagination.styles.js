@@ -56,5 +56,9 @@ export const PaginationContainer = styled.div`
     justify-content: center;
     margin: 0 10px;
     cursor: pointer;
+    &.active {
+      color: ${(props) => props.theme.colors.white};
+      background-color: ${(props) => props.theme.colors.red};
+    }
   }
 `;

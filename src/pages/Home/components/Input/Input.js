@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import { InputContainer, InputLabel, InputText } from "./Input.styles";
 
-export const Input = ({ value, onChange }) => {
+export const Input = ({ value, onChange, onKeyDown }) => {
   return (
     <InputContainer>
       <InputLabel htmlFor="Name">Nome do Personagem</InputLabel>
@@ -12,6 +12,7 @@ export const Input = ({ value, onChange }) => {
         name="Name"
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
     </InputContainer>
   );
@@ -20,6 +21,7 @@ export const Input = ({ value, onChange }) => {
 Input.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
 };
 
 export default Input;

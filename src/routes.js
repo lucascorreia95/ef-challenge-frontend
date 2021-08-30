@@ -9,7 +9,7 @@ export const Routes = () => (
     <Switch>
       <Suspense fallback={<div />}>
         <Route path="/" exact component={Home} />
-        <Route path="/details/">
+        <Route path="/details/:id">
           <Details />
         </Route>
       </Suspense>
